@@ -1,0 +1,23 @@
+{
+  "name": "movie-api",
+  "version": "1.0.0",
+  "description": "Movie data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aemullin/Movie-API.git"
+  },
+  "author": "Alexander Mullin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aemullin/Movie-API/issues"
+  },
+  "homepage": "https://github.com/aemullin/Movie-API#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2"
+  }
+}
