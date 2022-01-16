@@ -43,3 +43,7 @@ let topMovies = [
     director: 'James Wan'
   }
 ];
+app.get('/movies', (req,res) => {
+  res.json(topMovies);
+});
+
