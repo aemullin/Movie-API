@@ -47,3 +47,7 @@ app.get('/movies', (req,res) => {
   res.json(topMovies);
 });
 
+app.get('/', (req,res) =>{
+  res.send('Welcome to the Movies')
+});
+
