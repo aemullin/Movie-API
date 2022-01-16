@@ -1,4 +1,6 @@
 const express = require('express'),
+  morgan = require('morgan');
+
 const app = express();
 
 let topMovies = [
@@ -43,6 +45,9 @@ let topMovies = [
     director: 'James Wan'
   }
 ];
+
+app.use(morgan('common'));
+
 app.get('/movies', (req,res) => {
   res.json(topMovies);
 });
@@ -50,6 +55,8 @@ app.get('/movies', (req,res) => {
 app.get('/', (req,res) =>{
   res.send('Welcome to the Movies')
 });
+
+app.use(express.static('public'));
 
 
 app.listen(8080, () => {
