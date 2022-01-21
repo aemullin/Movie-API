@@ -48,12 +48,44 @@ let topMovies = [
 
 app.use(morgan('common'));
 
-app.get('/movies', (req,res) => {
+app.get('/', (req, res) =>{
+  res.send('Welcome to the Movies')
+});
+
+app.get('/movies', (req, res) => {
   res.json(topMovies);
 });
 
-app.get('/', (req,res) =>{
-  res.send('Welcome to the Movies')
+app.get('/movies/:title',(req, res) =>{
+  res.send('Successful GET request of info on a movie by its title')
+});
+
+app.get('/genres/:type', (req, res) => {
+  res.send('Successful GET request of genre info by type')
+});
+
+app.get ('/directors/:name', (req, res) =>{
+  res.send('Successful GET request of director info by name')
+});
+
+app.post ('/users', (req, res) => {
+  res.send('successful POST request allowing new users to register')
+});
+
+app.put ('/users/:username', (req, res) => {
+  res.send('successful PUT request allowing user to change username')
+});
+
+app.post ('/users/:username/favorites/:title', (req, res) => {
+  res.send('successful POST request allowing user to add movie to favorites')
+});
+
+app.delete('/users/:username/favorites/:title', (req, res) => {
+  res.send('successful DELETE request allowing user to remove movie from favorites')
+});
+
+app.delete('/users', (req, res) => {
+  res.send('successful DELETE request allowing users to deregister')
 });
 
 app.use(express.static('public'));
