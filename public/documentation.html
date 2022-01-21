@@ -5,7 +5,77 @@
     <title>About Movie API</title>
   </head>
   <body>
-    <h1>About Movie API</h1>
-    <p>This API will provide information on movies including but not limited to their descriptions, genres and directors.</p>
+    <div class="about">
+      <h1>About Movie API</h1>
+      <p>This API will provide information on movies including but not limited to their descriptions, genres and directors. It will also allow users to register/deregister and add/remove movies from a favorites list</p>
+    </div>
+    <div class="endpoints">
+      <h2> Url endpoints and requrest methods methods </h2>
+      <ul class="endpoint-list">
+        <li> Return list of movies
+          <ul>
+            <li> url: /movies </li>
+            <li> Request type: GET </li>
+            <li> provides JSON data of all movies </li>
+          </ul>
+        </li>
+        <li> Return info on a movie by name
+          <ul>
+            <li> url: /movies/:title </li>
+            <li> Request type: GET </li>
+            <li> provides JSON data for a specific movie by name </li>
+          </ul>
+        </li>
+        <li> Return info on genre by type
+          <ul>
+            <li> url: /genres/:type </li>
+            <li> Request type: GET </li>
+            <li> provides JSON data about a genre by type </li>
+          </ul>
+        </li>
+        <li> Return info on a director by name
+          <ul>
+            <li> url: /directors/:name </li>
+            <li> Request type: GET </li>
+            <li> provides JSON data on director information </li>
+          </ul>
+        </li>
+        <li> Allow new user to register
+          <ul>
+            <li> url: /users </li>
+            <li> Request type: POST </li>
+            <li> Returns confirmation when successful </li>
+          </ul>
+        </li>
+        <li> Allow user to update username
+          <ul>
+            <li> url: /users/:username </li>
+            <li> Request type: PUT </li>
+            <li> Returns confirmation when successful </li>
+          </ul>
+        </li>
+        <li> Allow user to add movie to favorites list
+          <ul>
+            <li> url: /users/:username/favorites/:title </li>
+            <li> Request type: POST </li>
+            <li> Returns confirmation when successful </li>
+          </ul>
+        </li>
+        <li> Allow user to remove movie from favorites list </li>
+          <ul>
+            <li> url: /user/:username/favorites/:title </li>
+            <li> Request type: DELETE </li>
+            <li> Returns confirmation when successful</li>
+          </ul>
+        </li>
+        <li> Allow user to deregister </li>
+          <ul>
+            <li> url: /users </li>
+            <li> Request type: DELETE </li>
+            <li> Returns confirmation when successful </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
