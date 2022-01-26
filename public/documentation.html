@@ -18,61 +18,122 @@
             <li> Request type: GET </li>
             <li> provides JSON data of all movies </li>
           </ul>
-        </li>
         <li> Return info on a movie by name
           <ul>
-            <li> url: /movies/:title </li>
+            <li> url: /movies/:Title </li>
             <li> Request type: GET </li>
             <li> provides JSON data for a specific movie by name </li>
+            <li>Example: <br>
+                "Genre": { <br>
+                "Name": "Science Fiction",<br>
+                "Description": "Speculative fiction that contains imagined elements that do not exist in the real world." <br>
+                },<br>
+                "Director": {<br>
+                "Name": "James Cameron",<br>
+                "Bio": "James Francis Cameron is a Canadian filmmaker. Best known for making science fiction and epic films. Popular films include Avatar and Titanic.", <br>
+                "Birth": "1954" <br>
+                }, <br>
+                "_id": "61eda33c2db24d3bf8793079", <br>
+                "Title": "Avatar", <br>
+                "Description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home. When his brother is killed in a robbery, paraplegic Marine Jake Sully decides to take his place in a mission on the distant world of Pandora.", <br>
+                "ImagePath": "avatar.png", <br>
+                "Featured": true
+            </li>
           </ul>
         </li>
         <li> Return info on genre by type
           <ul>
-            <li> url: /genres/:type </li>
+            <li> url: /genres/:Genre </li>
             <li> Request type: GET </li>
             <li> provides JSON data about a genre by type </li>
+            <li>Example: <br>
+                "Name": "Horror",<br>
+                "Description": "A genre in which the movie creates feelings of fear keeping the audience on the edge of their seats."
+            </li>
           </ul>
         </li>
         <li> Return info on a director by name
           <ul>
-            <li> url: /directors/:name </li>
+            <li> url: /directors/:directorName </li>
             <li> Request type: GET </li>
             <li> provides JSON data on director information </li>
+            <li>Example: <br>
+                "Name": "James Cameron", <br>
+                "Bio": "James Francis Cameron is a Canadian filmmaker. Best known for making science fiction and epic films. Popular films include Avatar and Titanic",<br>
+                "Birth": "1954"
+            </li>
           </ul>
         </li>
         <li> Allow new user to register
           <ul>
             <li> url: /users </li>
             <li> Request type: POST </li>
-            <li> Returns confirmation when successful </li>
+            <li> Returns JSON data of the new users information </li>
+            <li>Example: <br>
+                "Username": "User11",<br>
+                "Password": "Password11!",<br>
+                "Email": "User11@gmail.com",<br>
+                "FavoriteMovies": [], <br>
+                "_id": "61f1b82087c59aa5fabb8ecb",<br>
+                "__v": 0
+            </li>
           </ul>
         </li>
         <li> Allow user to update username
           <ul>
-            <li> url: /users/:username </li>
+            <li> url: /users/:Username </li>
             <li> Request type: PUT </li>
             <li> Returns confirmation when successful </li>
+            <li>Example: <br>
+                "_id": "61f1b82087c59aa5fabb8ecb", <br>
+                "Username": "user011",<br>
+                "Password": "Password11!",<br>
+                "Email": "User11@gmail.com",<br>
+                "FavoriteMovies": [],<br>
+                "__v": 0
+            </li>
           </ul>
         </li>
         <li> Allow user to add movie to favorites list
           <ul>
-            <li> url: /users/:username/favorites/:title </li>
+            <li> url: /users/:Username/favorites/:MovieID </li>
             <li> Request type: POST </li>
-            <li> Returns confirmation when successful </li>
+            <li> Returns JSON data on updated user data including the added movie </li>
+            <li>Example: <br>
+                "_id": "61f1b82087c59aa5fabb8ecb",<br>
+                "Username": "user011",<br>
+                "Password": "Password11!",<br>
+                "Email": "User11@gmail.com",<br>
+                "FavoriteMovies": [<br>
+                "61eda33c2db24d3bf8793079"<br>
+                ],<br>
+                "__v": 0
+            </li>
           </ul>
         </li>
         <li> Allow user to remove movie from favorites list </li>
           <ul>
-            <li> url: /user/:username/favorites/:title </li>
+            <li> url: /user/:Username/favorites/:MovieID </li>
             <li> Request type: DELETE </li>
-            <li> Returns confirmation when successful</li>
+            <li> Returns JSON data on updated user information, excluding the deleted movie</li>
+            <li> Example: <br>
+                "_id": "61f1b82087c59aa5fabb8ecb", <br>
+                "Username": "user011", <br>
+                "Password": "Password11!",<br>
+                "Email": "User11@gmail.com",<br>
+                "FavoriteMovies": [],<br>
+                "__v": 0
+            </li>
           </ul>
         </li>
         <li> Allow user to deregister </li>
           <ul>
-            <li> url: /users </li>
+            <li> url: /users/:Username </li>
             <li> Request type: DELETE </li>
-            <li> Returns confirmation when successful </li>
+            <li> Returns confirmation that the user was removed </li>
+            <li>Example: <br>
+                user011 has been deleted.
+            </li>
           </ul>
         </li>
       </ul>
