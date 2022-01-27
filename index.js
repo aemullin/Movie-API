@@ -53,8 +53,8 @@ app.get('/genres/:Genre', (req, res) => {
     });
 });
 
-app.get('/directors/:directorName', (req, res) =>{
-  Movies.findOne({'Director.Name': req.params.directorName})
+app.get('/directors/:Director', (req, res) =>{
+  Movies.findOne({'Director.Name': req.params.Director})
     .then((Movie) => {
       res.json(Movie.Director);
     })
