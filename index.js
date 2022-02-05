@@ -34,7 +34,7 @@ const Movies = Models.Movie;
 const Users = Models.User;
 
 //mongoose.connect('mongodb://localhost:27017/myFlixData', { useNewUrlParser: true, useUnifiedTopology: true });
-process.env.CONNECTION_URI;
+mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(morgan('common'));
 
