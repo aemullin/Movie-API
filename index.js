@@ -176,6 +176,22 @@ app.delete('/users/:Username/favorites/:MovieID', passport.authenticate('jwt', {
   })
 });
 
+app.get('/users/:Username', passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+    Users.findOne({ Username: req.params.Username })
+        .then((user) => {
+            if (user === null){
+                res.status(404).send("No user found")
+            } else {
+                res.json(user);
+            }
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send('Error: ' + err);
+        });
+});
+
 app.delete('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
   Users.findOneAndRemove ({Username: req.params.Username})
     .then((User) => {
