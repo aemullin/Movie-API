@@ -86,6 +86,18 @@ app.get('/directors/:Director', passport.authenticate('jwt', {session: false}), 
     });
 });
 
+app.get('/users', (req, res) =>{
+  Users.find()
+    .then((Users) => {
+      res.json(Users.Username);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    });
+});
+
+
 app.post ('/users',
   [
     check('Username', 'Username is required').isLength({min:5}),
